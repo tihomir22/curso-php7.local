@@ -32,21 +32,44 @@ class ImagenGaleria
     private $numDownloads;
 
     /**
+     * @var int
+     */
+    private $int;
+
+    /**
      * ImagenGaleria constructor.
-     * @param string $nombre
-     * @param string $descripcion
+     * @param $nombre
+     * @param $descripcion
      * @param int $numVisualizaciones
      * @param int $numLikes
      * @param int $numDownloads
      */
-    public function __construct($nombre, $descripcion, $numVisualizaciones=0, $numLikes=0, $numDownloads=0)
+    public function __construct($nombre='', $descripcion='', $numVisualizaciones=0, $numLikes=0, $numDownloads=0)
     {
+        $this->id=null;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->numVisualizaciones = $numVisualizaciones;
         $this->numLikes = $numLikes;
         $this->numDownloads = $numDownloads;
     }
+
+    /**
+     * @return int
+     */
+    public function getInt(): int
+    {
+        return $this->int;
+    }
+
+    /**
+     * @param int $int
+     */
+    public function setInt(int $int)
+    {
+        $this->int = $int;
+    }
+
 
     /**
      * @return string

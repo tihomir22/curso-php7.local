@@ -43,5 +43,39 @@
         </div>
     </div>
     <!-- Principal Content Start -->
+<hr>
+    <div>
+
+
+        <div class="container">
+            <div class="custyle">
+                <table class="table table-hover" custab">
+                <thead>
+                    <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new categories</a>
+                    <tr>
+                        <th>#</th>
+                        <th>Imagen</th>
+                        <th>Visualizaciones</th>
+                        <th >Likes</th>
+                        <th class="text-center">Descargas</th>
+                    </tr>
+                </thead>
+                    <?php foreach ($imagenes as $imagen): ?>
+                    <tr>
+                        <th><?= $imagen->getId()?></th>
+                        <th><img src="<?= $imagen->getUrlGallery() ?>" alt="<?= $imagen->getDescripcion() ?>" title="<?=$imagen ->getDescripcion() ?>"></th>
+                        <th><?= $imagen->getNumVisualizaciones() ?></th>
+                        <th><?= $imagen->getNumLikes() ?></th>
+                        <th class="text-center"><?= $imagen->getNumDownloads() ?></th>
+                    </tr>
+                    <?php endforeach;?>
+
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
 
 <?php include __DIR__ . '/partials/fin-doc.part.php'; ?>
