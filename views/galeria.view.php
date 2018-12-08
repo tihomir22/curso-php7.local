@@ -24,6 +24,7 @@
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
+
                 <form class="form-horizontal" action="<?= $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <div class="col-xs-12">
@@ -60,6 +61,7 @@
                         <th class="text-center">Descargas</th>
                     </tr>
                 </thead>
+                    <?php if(empty($imagenes)===false) : ?>
                     <?php foreach ($imagenes as $imagen): ?>
                     <tr>
                         <th><?= $imagen->getId()?></th>
@@ -69,7 +71,7 @@
                         <th class="text-center"><?= $imagen->getNumDownloads() ?></th>
                     </tr>
                     <?php endforeach;?>
-
+                    <?php endif;?>
                 </table>
             </div>
         </div>
