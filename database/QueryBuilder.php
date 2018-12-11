@@ -5,22 +5,29 @@
  * Date: 07/12/2018
  * Time: 11:33
  */
+require_once __DIR__.'/../core/App.php';
+require_once __DIR__.'/../exceptions/QueryException.php';
 
 class QueryBuilder
 {
     private $connection;
+    private $table;
+    private $classEntity;
 
     /**
      * QueryBuilder constructor.
      * @param PDO $connection
      */
-    public function __construct(PDO $connection)
+    public function __construct(string $table,string $classEntity)
     {
-        $this->connection = $connection;
+
+        $this->connection = App::getConnection();
+        $this->table=$table;
+        $this->classEntity=$classEntity;
     }
 
-    public function findAll(String $tabla,String $classEntity){
-        $sql="SELECT * FROM $tabla";
+    public function findAll(){
+        $sql="SELECT * FROM $this->table";
         //$this->connection->query($sql);
         $pdostatement=$this->connection->prepare($sql);
         if($pdostatement->execute()===false){
