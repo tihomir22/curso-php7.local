@@ -51,14 +51,14 @@ abstract class QueryBuilder
     public function save(IEntity $entity){
         try{
             $parameters=$entity->toArray();
-            $sql=sprintf('insert into %s (%s) values (%s)',
+            $sql=sprintf('INSERT INTO %s (%s) VALUES (%s)',
                 $this->table,
                 implode(', ',array_keys($parameters)),
                 ':'.implode(', :', array_keys($parameters)));
             $pdoStatement=$this->connection->prepare($sql);
             $pdoStatement->execute($parameters);
         }catch(PDOException $exception){
-            throw new QueryException("Error al insertar en la BDA");
+            throw new PDOException("Error al insertar en la BDA");
         }
     }
 

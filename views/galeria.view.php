@@ -63,9 +63,10 @@
                 </thead>
                     <?php if(empty($imagenes)===false) : ?>
                     <?php foreach ($imagenes as $imagen): ?>
+
                     <tr>
-                        <th><?= $imagen->getId()?></th>
-                        <th><img src="<?= $imagen->getUrlGallery() ?>" alt="<?= $imagen->getDescripcion() ?>" title="<?=$imagen ->getDescripcion() ?>"></th>
+                        <th><p><?= $imagen->getId() ?></p></th>
+                        <th><img src="<?= $imagen->getUrlGallery() ?>" alt="<?= $imagen->getDescripcion() ?>" title="<?=$imagen ->getDescripcion() ?>" style="height: 64px;width: 64px;"></th>
                         <th><?= $imagen->getNumVisualizaciones() ?></th>
                         <th><?= $imagen->getNumLikes() ?></th>
                         <th class="text-center"><?= $imagen->getNumDownloads() ?></th>

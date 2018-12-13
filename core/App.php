@@ -5,7 +5,7 @@
  * Date: 11/12/2018
  * Time: 9:24
  */
-require_once 'exceptions/AppException.php';
+require_once __DIR__.'/../exceptions/AppException.php';
 class App
 {
     private static $container=[];

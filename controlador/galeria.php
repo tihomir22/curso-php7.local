@@ -1,18 +1,18 @@
 <?php
-require_once 'utils/utils.php';
-require 'utils/File.php';
-require 'entity/ImagenGaleria.php';
-require 'database/Connection.php';
-require 'repository/ImagenGaleriaRepository.php';
-require_once 'exceptions/QueryException.php';
-require_once 'exceptions/FileException.php';
-require_once 'core/App.php';
+require_once __DIR__.'/../utils/utils.php';
+require __DIR__.'/../utils/File.php';
+require __DIR__.'/../entity/ImagenGaleria.php';
+require __DIR__.'/../database/Connection.php';
+require __DIR__.'/../repository/ImagenGaleriaRepository.php';
+require_once __DIR__.'/../exceptions/QueryException.php';
+require_once __DIR__.'/../exceptions/FileException.php';
+require_once __DIR__.'/../core/App.php';
 
 $errores=[];
 $descripcion='';
 $mensaje='';
 try {
-    $config=require_once 'app/config.php';
+    $config= require_once __DIR__.'/../app/config.php';
     App::bind('config',$config);
     $imagenGaleriaRepository=new ImagenGaleriaRepository();
     $imagenes='';
@@ -29,7 +29,6 @@ try {
 
 
             $imagenGaleria=new ImagenGaleria($imagen->getFilename(),$descripcion);
-        echo '<script>alert("llegamos")</script>';
             $imagenGaleriaRepository->save($imagenGaleria);
             $mensaje='Se ha guardado la imagen';
             $descripcion='';
@@ -38,7 +37,7 @@ try {
 
     }
 
-        $imagenes=$imagenGaleriaRepository->findAll();
+    $imagenes=$imagenGaleriaRepository->findAll();
 
 
 }catch (QueryException $exception){
@@ -48,4 +47,4 @@ try {
 }
 
 
-require 'views/galeria.view.php';
+require __DIR__.'/../views/galeria.view.php';

@@ -8,8 +8,8 @@
 require_once __DIR__.'/../database/IEntity.php';
 class ImagenGaleria implements IEntity
 {
-    const RUTA_IMAGENES_PORTFOLIO='images/index/portfolio/';
-    const RUTA_IMAGENES_GALLERY='images/index/gallery/';
+    const RUTA_IMAGENES_PORTFOLIO='../images/index/portfolio/';
+    const RUTA_IMAGENES_GALLERY='../images/index/gallery/';
     /**
      * @var string
      */
@@ -45,14 +45,14 @@ class ImagenGaleria implements IEntity
      * @param int $numLikes
      * @param int $numDownloads
      */
-    public function __construct($id=0,$nombre='', $descripcion='', $numVisualizaciones=0, $numLikes=0, $numDownloads=0)
+    public function __construct($nombre='', $descripcion='', $numVisualizaciones=0, $numLikes=0, $numDownloads=0)
     {
-        $this->id=$id;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->numVisualizaciones = $numVisualizaciones;
         $this->numLikes = $numLikes;
         $this->numDownloads = $numDownloads;
+        $this->id=null;
     }
 
     /**
@@ -187,11 +187,11 @@ class ImagenGaleria implements IEntity
     public function toArray():array
     {
         return[
-          'nombre'=>$this->getNombre(),
-            '$descripcion'=>$this->getDescripcion(),
-            '$numVisualizaciones'=>$this->getNumVisualizaciones(),
-            '$numLikes'=>$this->getNumLikes(),
-            '$numDownloads'=>$this->getNumDownloads()
+            'nombre'=>$this->getNombre(),
+            'descripcion'=>$this->getDescripcion(),
+            'numVisualizaciones'=>$this->getNumVisualizaciones(),
+            'numLikes'=>$this->getNumLikes(),
+            'numDownloads'=>$this->getNumDownloads()
         ];
     }
 }
