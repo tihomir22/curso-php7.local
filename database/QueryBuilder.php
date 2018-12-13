@@ -8,7 +8,9 @@
 require_once __DIR__.'/../core/App.php';
 require_once __DIR__.'/../exceptions/QueryException.php';
 
-class QueryBuilder
+
+
+abstract class QueryBuilder
 {
     private $connection;
     private $table;
@@ -26,6 +28,11 @@ class QueryBuilder
         $this->classEntity=$classEntity;
     }
 
+    /**
+     * @return array
+     * @throws QueryException
+     */
+
     public function findAll(){
         $sql="SELECT * FROM $this->table";
         //$this->connection->query($sql);
@@ -33,7 +40,25 @@ class QueryBuilder
         if($pdostatement->execute()===false){
             throw new QueryException("No se ha podido ejecutar la query");
         }else{
-            return $pdostatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,$classEntity);
+            return $pdostatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,$this->classEntity);
+        }
+    }
+
+    /**
+     * @param IEntity $entity
+     * @throws QueryException
+     */
+    public function save(IEntity $entity){
+        try{
+            $parameters=$entity->toArray();
+            $sql=sprintf('insert into %s (%s) values (%s)',
+                $this->table,
+                implode(', ',array_keys($parameters)),
+                ':'.implode(', :', array_keys($parameters)));
+            $pdoStatement=$this->connection->prepare($sql);
+            $pdoStatement->execute($parameters);
+        }catch(PDOException $exception){
+            throw new QueryException("Error al insertar en la BDA");
         }
     }
 
