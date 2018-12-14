@@ -66,7 +66,7 @@
 
                     <tr>
                         <th><p><?= $imagen->getId() ?></p></th>
-                        <th><img src="<?= $imagen->getUrlGallery() ?>" alt="<?= $imagen->getDescripcion() ?>" title="<?=$imagen ->getDescripcion() ?>" style="height: 64px;width: 64px;"></th>
+                        <th><img src="<?= $imagen->getUrlGallery() ?>" alt="<?= $imagen->getDescripcion() ?>" title="<?=$imagen ->getDescripcion() ?>" style="height: 64px;width: 64px;"><br>Descripcion: <br><?= $imagen->getDescripcion() ?></th>
                         <th><?= $imagen->getNumVisualizaciones() ?></th>
                         <th><?= $imagen->getNumLikes() ?></th>
                         <th class="text-center"><?= $imagen->getNumDownloads() ?></th>
