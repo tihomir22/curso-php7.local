@@ -57,6 +57,35 @@
 	       	  	</div>
 	       	  </div>
 	       </form>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th>Asunto</th>
+                    <th>Mensaje</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    <?php foreach ($comentarios as $comentario):?>
+                    <tr>
+                        <th><?= $comentario->getId() ?></th>
+                        <th><?= $comentario->getNombre() ?></th>
+                        <th><?= $comentario->getApellidos() ?></th>
+                        <th><?= $comentario->getEmail() ?></th>
+                        <th><?= $comentario->getAsunto() ?></th>
+                        <th><?= $comentario->getMensaje() ?></th>
+                    </tr>
+                    <?php endforeach; ?>
+
+
+                </tbody>
+            </table>
+
+
 	       <hr class="divider">
 	       <div class="address">
 	           <h3>GET IN TOUCH</h3>

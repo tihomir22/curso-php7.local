@@ -8,6 +8,8 @@ require_once __DIR__.'/../exceptions/QueryException.php';
 require_once __DIR__.'/../exceptions/FileException.php';
 require_once __DIR__.'/../core/App.php';
 
+
+//echo '<script>alert("suelta el torpedo")</script>';
 $errores=[];
 $descripcion='';
 $mensaje='';
@@ -37,7 +39,7 @@ try {
 
     }
 
-    $imagenes=$imagenGaleriaRepository->findAll();
+
 
 
 }catch (QueryException $exception){
