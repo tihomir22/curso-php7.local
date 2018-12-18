@@ -30,10 +30,15 @@
                     <a href="<?= esOpcionMenuActiva('contact') ? '#' : '/controlador/contact.php' ?>">
                         <i class="fa fa-phone-square sr-icons"></i> Contact</a>
                 </li>
-                <li class="<?= esOpcionMenuActiva('galeria') ? 'active' : '' ?>">
+                <li class="<?= esOpcionMenuActiva('galeria') ? 'active' : '' ?> lien">
                     <a href="<?= esOpcionMenuActiva('galeria') ? '#' : '/controlador/galeria.php' ?>">
                         <i class="fa fa-image"></i> Galeria</a>
                 </li>
+                <li class="<?= esOpcionMenuActiva('asociado') ? 'active' : '' ?> lien">
+                    <a href="<?= esOpcionMenuActiva('asociado') ? '#' : '/controlador/asociados.php' ?>">
+                        <i class="fa fa-hand-o-right"></i> Asociados</a>
+                </li>
+
             </ul>
         </div>
     </div>

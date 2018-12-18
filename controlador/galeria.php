@@ -38,7 +38,7 @@ try {
 
 
     }
-
+    $imagenes=$imagenGaleriaRepository->findAll();
 
 
 
